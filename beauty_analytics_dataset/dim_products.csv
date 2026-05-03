@@ -1,0 +1,61 @@
+product_id,product_name,brand,category,subcategory,price,launch_date
+1,Product_1,GlowLab,skincare,lipstick,72.09,2023-03-08
+2,Product_2,GlowLab,makeup,cleanser,68.33,2025-02-02
+3,Product_3,LumaSkin,skincare,brush,93.31,2024-04-06
+4,Product_4,Velour Beauty,personal_care,shampoo,116.83,2024-05-03
+5,Product_5,LumaSkin,accessories,lipstick,17.64,2025-02-18
+6,Product_6,Velour Beauty,accessories,brush,84.55,2023-03-07
+7,Product_7,Velour Beauty,skincare,shampoo,66.61,2025-04-11
+8,Product_8,LumaSkin,accessories,brush,52.43,2023-10-26
+9,Product_9,GlowLab,personal_care,brush,82.16,2025-05-27
+10,Product_10,Velour Beauty,accessories,shampoo,107.25,2024-03-19
+11,Product_11,GlowLab,accessories,brush,76.39,2025-11-20
+12,Product_12,LumaSkin,personal_care,cleanser,99.9,2023-06-17
+13,Product_13,Velour Beauty,personal_care,serum,41.07,2023-04-15
+14,Product_14,GlowLab,makeup,lipstick,57.02,2025-04-19
+15,Product_15,Velour Beauty,skincare,shampoo,27.52,2023-01-22
+16,Product_16,GlowLab,personal_care,serum,72.13,2025-01-30
+17,Product_17,GlowLab,accessories,lipstick,90.82,2024-12-20
+18,Product_18,GlowLab,personal_care,shampoo,72.88,2025-09-18
+19,Product_19,LumaSkin,personal_care,shampoo,110.15,2023-04-10
+20,Product_20,Velour Beauty,skincare,cleanser,104.25,2024-12-05
+21,Product_21,GlowLab,personal_care,shampoo,55.53,2025-02-02
+22,Product_22,LumaSkin,accessories,cleanser,72.09,2023-02-09
+23,Product_23,GlowLab,personal_care,lipstick,80.47,2025-04-22
+24,Product_24,GlowLab,makeup,brush,98.44,2024-06-06
+25,Product_25,LumaSkin,personal_care,cleanser,16.37,2025-08-30
+26,Product_26,LumaSkin,accessories,brush,98.43,2025-11-30
+27,Product_27,Velour Beauty,personal_care,brush,15.46,2023-01-04
+28,Product_28,LumaSkin,makeup,shampoo,88.59,2025-10-23
+29,Product_29,GlowLab,accessories,serum,60.12,2024-01-11
+30,Product_30,LumaSkin,makeup,brush,34.57,2025-04-21
+31,Product_31,LumaSkin,accessories,serum,87.18,2025-04-23
+32,Product_32,GlowLab,personal_care,cleanser,105.48,2023-06-11
+33,Product_33,GlowLab,accessories,brush,100.82,2024-08-10
+34,Product_34,Velour Beauty,personal_care,brush,29.74,2023-10-21
+35,Product_35,GlowLab,makeup,brush,75.66,2025-10-24
+36,Product_36,LumaSkin,accessories,serum,82.27,2025-08-24
+37,Product_37,LumaSkin,personal_care,cleanser,13.86,2024-02-15
+38,Product_38,GlowLab,accessories,serum,44.76,2024-08-08
+39,Product_39,Velour Beauty,personal_care,lipstick,19.68,2025-01-07
+40,Product_40,Velour Beauty,accessories,lipstick,54.68,2025-01-28
+41,Product_41,GlowLab,personal_care,shampoo,89.45,2024-01-24
+42,Product_42,LumaSkin,personal_care,brush,98.19,2025-04-02
+43,Product_43,GlowLab,makeup,lipstick,93.48,2023-04-04
+44,Product_44,LumaSkin,personal_care,lipstick,38.43,2023-07-11
+45,Product_45,LumaSkin,skincare,serum,24.65,2025-12-17
+46,Product_46,LumaSkin,accessories,cleanser,105.72,2024-10-19
+47,Product_47,GlowLab,accessories,brush,91.16,2024-11-15
+48,Product_48,LumaSkin,makeup,brush,92.59,2024-10-24
+49,Product_49,GlowLab,skincare,shampoo,38.34,2024-09-01
+50,Product_50,GlowLab,personal_care,cleanser,72.08,2023-01-12
+51,Product_51,Velour Beauty,accessories,brush,108.57,2023-09-19
+52,Product_52,Velour Beauty,accessories,serum,101.43,2023-04-21
+53,Product_53,Velour Beauty,personal_care,brush,37.95,2024-08-20
+54,Product_54,GlowLab,skincare,lipstick,114.49,2025-02-01
+55,Product_55,GlowLab,accessories,brush,50.41,2023-11-09
+56,Product_56,GlowLab,skincare,lipstick,72.14,2023-02-01
+57,Product_57,Velour Beauty,makeup,cleanser,89.91,2023-03-30
+58,Product_58,LumaSkin,makeup,lipstick,36.1,2025-03-04
+59,Product_59,LumaSkin,skincare,cleanser,52.07,2024-12-31
+60,Product_60,Velour Beauty,makeup,shampoo,112.08,2024-12-11

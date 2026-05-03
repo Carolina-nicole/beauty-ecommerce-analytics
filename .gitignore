@@ -1,0 +1,4 @@
+.vscode/
+*.duckdb
+*.wal
+duckdb.exe
