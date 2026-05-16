@@ -1,5 +1,11 @@
 CREATE OR REPLACE TABLE int_user_lifecycle AS
 
+-- NOTE:
+-- This lifecycle model uses first_session_date as the behavioural anchor.
+-- Exploratory validation showed that most users had sessions before signup,
+-- suggesting browsing behaviour before registration.
+-- Chronology inconsistencies are handled by returning NULL for invalid timing metrics.
+
 WITH ranked_sessions AS (
     SELECT
         user_id,
@@ -45,17 +51,21 @@ SELECT
     fs.first_session_date,
     fo.first_order_date,
 
-    DATE_DIFF('day', u.signup_date, fs.first_session_date)
-        AS days_to_first_session,
-
-    DATE_DIFF('day', u.signup_date, fo.first_order_date)
-        AS days_to_first_order,
+    CASE
+        WHEN u.signup_date >= fs.first_session_date
+        THEN DATE_DIFF('day', fs.first_session_date, u.signup_date)
+    END AS days_to_signup,
 
     CASE
-        WHEN fs.first_session_date IS NOT NULL
+        WHEN fo.first_order_date >= fs.first_session_date
+        THEN DATE_DIFF('day', fs.first_session_date, fo.first_order_date)
+    END AS days_to_first_order,
+
+    CASE
+        WHEN u.signup_date IS NOT NULL
         THEN TRUE
         ELSE FALSE
-    END AS has_started_session,
+    END AS has_signed_up,
 
     CASE
         WHEN fo.first_order_date IS NOT NULL

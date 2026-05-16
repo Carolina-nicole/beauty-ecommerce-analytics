@@ -5,7 +5,7 @@ SELECT
 
     CAST(signup_date AS DATE) AS signup_date,
 
-    DATE_TRUNC('month', signup_date) AS signup_month,
+    DATE_TRUNC('month', signup_date)::DATE AS signup_month,
 
     LOWER(TRIM(acquisition_channel)) AS acquisition_channel,
 
