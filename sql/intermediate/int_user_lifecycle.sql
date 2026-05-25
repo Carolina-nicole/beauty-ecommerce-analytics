@@ -50,6 +50,7 @@ SELECT
 
     fs.first_session_date,
     fo.first_order_date,
+    DATE_TRUNC('month', fo.first_order_date)::DATE AS first_order_month,
 
     CASE
         WHEN u.signup_date >= fs.first_session_date
