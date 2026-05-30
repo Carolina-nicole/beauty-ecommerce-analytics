@@ -20,7 +20,7 @@ WITH user_stage_flags AS (
     GROUP BY user_id
 ),
 
-strict_funnel AS (
+strict_users AS (
 
     SELECT
         user_id,
@@ -64,63 +64,109 @@ strict_funnel AS (
     FROM user_stage_flags
 ),
 
-funnel_counts AS (
+user_dimensions AS (
+
+    SELECT DISTINCT
+        user_id,
+
+        DATE_TRUNC('month', event_date)::DATE AS event_month,
+
+        device_type,
+        campaign_id
+
+    FROM stg_events
+),
+
+final_funnel AS (
 
     SELECT
-        SUM(reached_homepage_view) AS homepage_users,
+        d.user_id,
+        d.event_month,
+        d.device_type,
+        d.campaign_id,
 
-        SUM(reached_product_view) AS product_view_users,
+        1 AS stage_order,
+        'homepage_view' AS funnel_stage
 
-        SUM(reached_add_to_cart) AS add_to_cart_users,
+    FROM strict_users AS s
 
-        SUM(reached_checkout_start) AS checkout_start_users,
+    INNER JOIN user_dimensions AS d
+        ON s.user_id = d.user_id
 
-        SUM(reached_purchase) AS purchase_users
+    WHERE s.reached_homepage_view = 1
 
-    FROM strict_funnel
+    UNION ALL
+
+    SELECT
+        d.user_id,
+        d.event_month,
+        d.device_type,
+        d.campaign_id,
+
+        2,
+        'product_view'
+
+    FROM strict_users AS s
+
+    INNER JOIN user_dimensions AS d
+        ON s.user_id = d.user_id
+
+    WHERE s.reached_product_view = 1
+
+    UNION ALL
+
+    SELECT
+        d.user_id,
+        d.event_month,
+        d.device_type,
+        d.campaign_id,
+
+        3,
+        'add_to_cart'
+
+    FROM strict_users AS s
+
+    INNER JOIN user_dimensions AS d
+        ON s.user_id = d.user_id
+
+    WHERE s.reached_add_to_cart = 1
+
+    UNION ALL
+
+    SELECT
+        d.user_id,
+        d.event_month,
+        d.device_type,
+        d.campaign_id,
+
+        4,
+        'checkout_start'
+
+    FROM strict_users AS s
+
+    INNER JOIN user_dimensions AS d
+        ON s.user_id = d.user_id
+
+    WHERE s.reached_checkout_start = 1
+
+    UNION ALL
+
+    SELECT
+        d.user_id,
+        d.event_month,
+        d.device_type,
+        d.campaign_id,
+
+        5,
+        'purchase'
+
+    FROM strict_users AS s
+
+    INNER JOIN user_dimensions AS d
+        ON s.user_id = d.user_id
+
+    WHERE s.reached_purchase = 1
 )
 
-SELECT
-    1 AS stage_order,
-    'homepage_view' AS funnel_stage,
-    homepage_users AS users_reached
-
-FROM funnel_counts
-
-UNION ALL
-
-SELECT
-    2,
-    'product_view',
-    product_view_users
-
-FROM funnel_counts
-
-UNION ALL
-
-SELECT
-    3,
-    'add_to_cart',
-    add_to_cart_users
-
-FROM funnel_counts
-
-UNION ALL
-
-SELECT
-    4,
-    'checkout_start',
-    checkout_start_users
-
-FROM funnel_counts
-
-UNION ALL
-
-SELECT
-    5,
-    'purchase',
-    purchase_users
-
-FROM funnel_counts
-
-ORDER BY stage_order;
+SELECT DISTINCT *
+FROM final_funnel;
